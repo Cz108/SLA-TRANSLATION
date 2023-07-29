@@ -9,6 +9,7 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/bilibala/Study/SLA-TRANS/
 
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding='utf-8')
+    target_language_code = 'bs'
     doc_path = '/Users/bilibala/Study/SLA-TRANS/documents/test1.docx'
     doc = load_document(doc_path)
 
@@ -17,7 +18,7 @@ if __name__ == "__main__":
 
     for source_cell_dict, target_cell_dict in zip(get_cell_dict_in_selected_column(doc, 2), get_cell_dict_in_selected_column(doc, 3)):
         if if_color_match_the_cell(source_cell_dict['object'], "FFFFFF") or if_color_match_the_cell(source_cell_dict['object'], "F5DEB3"):
-            translated_text = tool.translate_text('bs', get_cell_text(source_cell_dict['object']))
+            translated_text = tool.translate_text(target_language_code, get_cell_text(source_cell_dict['object']))
             print('-'*50)
             print(get_cell_text(source_cell_dict['object']))
             print(translated_text['translatedText'])

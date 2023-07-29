@@ -5,6 +5,11 @@ from tools.colors import print_colored_block
 import sys
 
 
+"""
+ In Docx, rows and columns are 0-indexed, meaning they start from 0, not 1.
+"""
+
+
 def load_document(file_path):
     return Document(file_path)
 
