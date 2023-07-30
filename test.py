@@ -20,3 +20,6 @@ Language code printout
 # tool.list_languages()
 value = tool.translate_text('bs','Get Advertisement Linkage Records')
 print(value['translatedText'])
+
+
+# Test
