@@ -10,6 +10,7 @@ with open(key_path, 'r') as file:
 os.environ["OPENAI_API_KEY"] = key
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
+# example key
 # openai.api_key = "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"
 
 """
