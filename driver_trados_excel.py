@@ -1,4 +1,3 @@
-# Test only
 import os
 import sys
 from tools import snippets as tool

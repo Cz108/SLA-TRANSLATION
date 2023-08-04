@@ -22,13 +22,38 @@ def select_column(doc, column_index):
 
     return selected_column
 
+
+def return_paragraphs(doc):
+    paragraphs = []
+    for para in doc.paragraphs:
+        if para.text.strip():  # Ignore empty paragraphs
+            paragraphs.append(para.text)
+    return paragraphs
+
+
+def skip_empty_paragraph(para):
+    return para.text.strip()
+
+
+def process_paragraph(doc):
+    for para in doc.paragraphs:
+        if skip_empty_paragraph(para):  # Ignore empty paragraphs
+            para.text = f"{para.text} \n{text_to_add}"
+    #         paragraphs.append(para.text)
+    # return paragraphs
+
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding='utf-8')
-    doc = load_document('/Users/bilibala/Study/SLA-TRANS/documents/test1.docx')
-    column_index_to_select = 2  # Replace with the index of the column you want (0-based index)
+    doc = load_document('/documents/duizhao_xml.docx')
 
-    selected_column = select_column(doc, column_index_to_select)
+    text_to_add = "TEXT TO ADD"
 
-    for cell_text in selected_column:
-        print("cell:")
-        print(cell_text)
+    process_paragraph(doc)
+
+    # for idx, para in enumerate(paragraphs, 1):
+    #     print(f"Paragraph {idx}: {para}")
+
+    # Save the modified content back to the DOCX file
+    doc.save('/Users/bilibala/Study/SLA-TRANS/documents/duizhao_xml_modified.docx')
+
+
