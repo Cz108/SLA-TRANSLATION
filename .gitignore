@@ -2,3 +2,4 @@ cre/
 .idea/
 __pycache__/
 **/~$
+**/.pyc
