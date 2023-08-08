@@ -46,7 +46,7 @@ def check_if_two_sentences_consistent(sentence1, sentence2):
     Repeat sentence
     Return sentence
 """
-def check_if_two_sentences_consistent(sentence:str) -> str:
+def repeat_sentece(sentence:str) -> str:
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=
@@ -85,7 +85,9 @@ if __name__ == "__main__":
     sentence3 = """Когато даден човек е конфигуриран с роля, ако не е зададен като супер потребител на докинг станцията, той може да преглежда файлове само в своята докинг станция; ако обаче е зададен като супер потребител на докинг "станцията", този човек може не само да преглежда файлове в своята докинг станция, но също и файлове във всички докинг станции на следните хора, включително хората от собствената му група (и подгрупи), както и на хората в групата на своята докинг станция."""
     # print(check_if_two_sentences_consistent(sentence1, sentence2))
 
-    result = check_if_two_sentences_consistent(sentence3)
+    # result = check_if_two_sentences_consistent(sentence3)
+
+    result = repeat_sentece(sentence3)
     print(result['result'])
     calculate_per_k_cost(sentence3, result['price'])
 
